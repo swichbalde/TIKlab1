@@ -30,12 +30,12 @@ public class AppRunner {
         }
         DecimalFormat numberFormat = new DecimalFormat("0.000000");
 
-        File file = new File("result.txt");
-        boolean newFile = file.createNewFile();
-        if (!newFile) {
-            throw new RuntimeException("file not created");
-        }
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
+//        File file = new File("freq_result.txt");
+//        boolean newFile = file.createNewFile();
+//        if (!newFile) {
+//            throw new RuntimeException("file not created");
+//        }
+//        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
         Map<String, Integer> sortByValue = sortByValue(allSymbols);
         String res;
         for (Map.Entry<String, Integer> map : sortByValue.entrySet()) {
@@ -46,15 +46,15 @@ public class AppRunner {
             else
                 res = map.getKey() + " : " + map.getValue() + " : " + numberFormat.format(freq);
 
-            bufferedWriter.write(res + "\n");
+//            bufferedWriter.write(res + "\n");
             System.out.println(res);
             info += (freq * log2(freq));
-            bufferedWriter.flush();
+//            bufferedWriter.flush();
         }
         System.out.println(Math.log1p(625));
-        bufferedWriter.write("countSym = " + countSym + "\n");
-        bufferedWriter.write("info = " + info * -1);
-        bufferedWriter.flush();
+//        bufferedWriter.write("countSym = " + countSym + "\n");
+//        bufferedWriter.write("info = " + info * -1);
+//        bufferedWriter.flush();
 
         System.out.println("countSym = " + countSym);
         System.out.println("info = " + info * -1);
